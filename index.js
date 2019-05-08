@@ -32,6 +32,7 @@ client.query('SELECT * FROM users;', (err, res) => {
 
 
 app.get('/', (request, response) => {
+  console.log('hello')
   response.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
