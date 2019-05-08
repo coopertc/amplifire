@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const db = require('./queries')
+const db = require('./q2')
 const port = 3000
 
 app.use(bodyParser.json())
@@ -10,6 +10,26 @@ app.use(
     extended: true,
   })
 )
+
+const { Client } = require('pg');
+
+const client = new Client
+({
+  connectionString: postgres:'//jxlbvamibcaist:eba35402ee783536d796a517ab6fdaca3af537a9281aac4c44ace60b6d05b758@ec2-184-72-237-95.compute-1.amazonaws.com:5432/demljeimj7bjrj',
+  ssl: true,
+});
+
+client.connect();
+
+client.query('SELECT * FROM users;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+
 
 app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' })
