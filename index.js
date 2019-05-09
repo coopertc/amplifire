@@ -34,6 +34,7 @@ app.get('/', (request, response) => {
       response.json({info: JSON.stringify(row)});
     }
   });
+  client.end();
 });
 
 
