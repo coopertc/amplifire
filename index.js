@@ -16,12 +16,9 @@ app.get('/', async (request, response) => {
 });
 
 app.get('/artists', db.getArtists);
-/*
-app.get('/users/:id', db.getUserById)
-app.post('/users', db.createUser)
-app.put('/users/:id', db.updateUser)
-app.delete('/users/:id', db.deleteUser)
-*/
+app.get('/albums', db.getAlbums);
+
+
 app.set ('port', ( process.env.PORT || 3000 ));
 app.listen( app.get('port'), () => {
   console.log(`App running on port ${port}.`)

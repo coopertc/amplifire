@@ -27,7 +27,15 @@ const getArtists = (request, response) => {
   })
 }
 
+const getAlbums  = (request, response) => {
+  client.query('SELECT * FROM album', (error, results) => {
+    if (error) throw error;
+    response.status(200).json(results.rows)
+  })
+}
+
 
 module.exports = {
   getArtists,
+  getAlbums,
 }
