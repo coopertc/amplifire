@@ -1,4 +1,4 @@
-const { Client } = require('pg').Pool;
+const Client  = require('pg').Pool;
 
 const client = new Client
 ({
