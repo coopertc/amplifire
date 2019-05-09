@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const db = require('./q2')
+const db = require('./queries')
 const port = 3000
 
 console.log(process.env.DATABASE_URL);
