@@ -40,7 +40,6 @@ app.get('/', (request, response) => {
     for (let row of res.rows) {
       response.json({info: JSON.stringify(row)});
     }
-    client.end();
   });
 });
 
