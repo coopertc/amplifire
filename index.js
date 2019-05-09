@@ -13,7 +13,6 @@ app.use(
 
 app.get('/', async (request, response) => {
   response.json({ info: 'The beginings of the amplifire backend API' });
-  }
 });
 
 app.get('/users', db.getUsers)
