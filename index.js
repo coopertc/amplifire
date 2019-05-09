@@ -21,14 +21,7 @@ const client = new Client
   ssl: true,
 });
 
-client.connect();
 
-client.query('SELECT * FROM users;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-});
 
 
 
