@@ -4,6 +4,8 @@ const app = express()
 const db = require('./q2')
 const port = 3000
 
+console.log(process.env.DATABASE_URL);
+
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -15,7 +17,7 @@ const { Client } = require('pg');
 
 const client = new Client
 ({
-  connectionString: 'postgres://jxlbvamibcaist:eba35402ee783536d796a517ab6fdaca3af537a9281aac4c44ace60b6d05b758@ec2-184-72-237-95.compute-1.amazonaws.com:5432/demljeimj7bjrj',
+  connectionString: 'postgres://dbdheidwdrcexm:9871bd5ad3c6bf47e729009968a4e7c80f4c124118b88d680d95e2e6c59a9f2b@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d7fcl8rbk5cc0n',
   ssl: true,
 });
 
