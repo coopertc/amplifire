@@ -32,6 +32,7 @@ app.get('/', (request, response) => {
   client.query('SELECT * FROM users;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
+      console.log(row);
       response.json({info: JSON.stringify(row)});
     }
   });
