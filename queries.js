@@ -20,7 +20,7 @@ client.query('SELECT * FROM users;', (err, res) => {
 
 
 const getUsers = (request, response) => {
-  client.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+  client.query('SELECT * FROM users ORDER', (error, results) => {
     if (error) {
       throw error
     }
