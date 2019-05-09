@@ -35,8 +35,15 @@ client.query('SELECT * FROM users;', (err, res) => {
 
 app.get('/', (request, response) => {
   console.log('hello')
-  response.json({ info: 'Node.js, Express, and Postgres API' })
-})
+  client.connect();
+  client.query('SELECT * FROM users;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+      response.json({info: JSON.stringify(row)});
+    }
+    client.end();
+  });
+});
 
 
 app.get('/users', db.getUsers)
