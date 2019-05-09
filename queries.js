@@ -19,7 +19,7 @@ client.query('SELECT * FROM users;', (err, res) => {
 
 
 const getArtists = (request, response) => {
-  client.query('SELECT * FROM artists', (error, results) => {
+  client.query('SELECT * FROM artist', (error, results) => {
     if (error) {
       throw error
     }
