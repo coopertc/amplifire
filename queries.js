@@ -18,8 +18,8 @@ client.query('SELECT * FROM users;', (err, res) => {
 
 
 
-const getUsers = (request, response) => {
-  client.query('SELECT * FROM users', (error, results) => {
+const getArtists = (request, response) => {
+  client.query('SELECT * FROM artists', (error, results) => {
     if (error) {
       throw error
     }
@@ -29,5 +29,5 @@ const getUsers = (request, response) => {
 
 
 module.exports = {
-  getUsers,
+  getArtists,
 }

@@ -15,7 +15,7 @@ app.get('/', async (request, response) => {
   response.json({ info: 'The beginings of the amplifire backend API' });
 });
 
-app.get('/users', db.getUsers)
+app.get('/artists', db.getArtists);
 /*
 app.get('/users/:id', db.getUserById)
 app.post('/users', db.createUser)
