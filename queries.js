@@ -1,4 +1,4 @@
-const { Client } = require('pg');
+const { Client } = require('pg').Pool;
 
 const client = new Client
 ({
@@ -6,7 +6,6 @@ const client = new Client
   ssl: true,
 });
 
-client.connect();
 /*
 client.query('SELECT * FROM users;', (err, res) => {
   if (err) throw err;
@@ -20,7 +19,7 @@ client.query('SELECT * FROM users;', (err, res) => {
 
 
 const getUsers = (request, response) => {
-  client.query('SELECT * FROM users ORDER', (error, results) => {
+  client.query('SELECT * FROM users', (error, results) => {
     if (error) {
       throw error
     }
