@@ -23,7 +23,7 @@ const pool = new Client
 
 
 
-.get('/', async (request, response) => {
+app.get('/', async (request, response) => {
   console.log('hello')
   const client = await pool.connect()
   const result = await client.query("SELECT * FROM users');
