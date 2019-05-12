@@ -17,7 +17,10 @@ app.get('/', async (request, response) => {
 
 app.get('/artists', db.getArtists);
 app.get('/albums', db.getAlbums);
-app.get('/users/:id', db.getUserPosts);
+app.get('/users', db.getUsers);
+app.get('/user/:id', db.getUserById);
+app.put('user/:id', db.updateUser);
+app.get('/user/:id/posts', db.getUserPosts);
 
 app.set ('port', ( process.env.PORT || 3000 ));
 app.listen( app.get('port'), () => {

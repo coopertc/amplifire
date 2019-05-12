@@ -34,6 +34,31 @@ const getAlbums  = (request, response) => {
   })
 }
 
+const getUsers = (request, response) => {
+  client.query('SELECT * FROM app_user', (error, results) => {
+    if (error) throw error;
+    response.status(200).json(results.rows);
+  }) 
+}
+
+const getUserById = (request, response) => {
+  const id = parseInt(request.params.id);
+  client.query('SELECT * FROM app_user WHERE userid = $1', [id], (error, results) => {
+    if (error) throw error;
+    response.status(200).json(results.rows);  
+  })
+}
+
+const updateUser = (request, response) => {
+  const uid = request.params.userid;
+  const { username } = request.body
+  console.log(username);
+  client.query('UPDATE app_user SET username = $1 WHERE userid = $4', [username], (error, results) => {
+    if (error) throw error;
+    response.status(200).send(`User modified with id ${uid}`)
+  }) 
+}
+
 const getUserPosts = (request, response) => {
   const id = parseInt(request.params.id);
   client.query('SELECT * FROM post WHERE userid_fk = $1', [id], (error, results) => {
@@ -45,5 +70,8 @@ const getUserPosts = (request, response) => {
 module.exports = {
   getArtists,
   getAlbums,
+  getUsers,
+  getUserById,
+  updateUser,
   getUserPosts,
 }
