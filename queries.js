@@ -35,8 +35,11 @@ const getAlbums  = (request, response) => {
 }
 
 const getUserPosts = (request, response) => {
-  const id = parseInt(request);
-  response.status(200).json((id));
+  const id = parseInt(request.params.id);
+  client.query('SELECT * FROM post WHERE userid_fk = $1', [id], (error, results) => {
+    if (error) throw error;
+    response.status(200).json(results.rows)
+  })
 }
 
 module.exports = {
