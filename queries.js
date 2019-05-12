@@ -34,8 +34,13 @@ const getAlbums  = (request, response) => {
   })
 }
 
+const getUserPosts = (request, response) => {
+  const id = parseInt(request);
+  response.status(200).json((id));
+}
 
 module.exports = {
   getArtists,
   getAlbums,
+  getUserPosts,
 }
