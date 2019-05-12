@@ -53,7 +53,7 @@ const updateUser = (request, response) => {
   const uid = request.params.userid;
   const { username } = request.body
   console.log(username);
-  client.query('UPDATE app_user SET username = $1 WHERE userid = $4', [username], (error, results) => {
+  client.query('UPDATE app_user SET username = $1 WHERE userid = $2', [username, uid], (error, results) => {
     if (error) throw error;
     response.status(200).send(`User modified with id ${uid}`)
   }) 
